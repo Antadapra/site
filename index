@@ -8,18 +8,32 @@
 </head>
 
 <body>
+    <div class="wrapper">
     <header class="container">
         <span class="logo">Moscow weather</span>
         <nav>
             <ul>
-                <li class="active"><a href="#">home</a></li>
-                <li class="btn"><a href="#"></a>Прогноз погоды</li>
-                <li class="btn"><a href="#"></a>Качество воздуха</li>
+                <li><a href="#">Влажность</a></li>
+                <li><a href="#">Прогноз погоды</a></li>
+                <li><a href="#">Качество воздуха</a></li>
+                <li><a href="#">Содержание углекислого газа</a></li>
+                <li class="btn"><a href="#">О нас</a></li>
+
             </ul>
         </nav>
     </header>
 
-    <div class="hero container"></div>
+    <div class="hero container">
+        <div class="hero--info">
+            <h2>Москва</h2>
+            <h1>°C</h1>
+            <p></p>
+            <button class="btn"></button>
+        </div>
+    </div>
+        <img src="img/Weather_main_asset.svg" alt="">
+        </body>
+</div> 
 </body>
 
 </html>
