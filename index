@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Website</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header class="container">
+        <span class="logo">Moscow weather</span>
+        <nav>
+            <ul>
+                <li class="active"><a href="#">home</a></li>
+                <li class="btn"><a href="#"></a>Прогноз погоды</li>
+                <li class="btn"><a href="#"></a>Качество воздуха</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero container"></div>
+</body>
+
+</html>
