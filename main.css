@@ -8,6 +8,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    color: #fff;
 }
 
 a {
@@ -17,4 +18,67 @@ a {
 
 img {
     max-width: 100%;
+}
+.wrapper {
+    background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(43, 39, 39, 1) 0%);
+    width: 100%;
+}
+
+.container {
+    width: 1400px;
+    margin: 0 auto;
+}
+header {
+    padding: 50px 0;
+
+}
+header .logo {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 400;
+
+}
+
+header nav {
+    float: right;
+    width: 50%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+header nav ul li {
+    display: inline-block
+}
+
+header nav ul li a {
+    color: #fff
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    border-bottom: 2px solid #695D5D;
+}
+
+header nav ul li.btn a {
+    background: #695D5D;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: all 500ms ease;
+}
+
+header nav ul li.btn a:hover {
+    background: #443d3d;
+}
+
+.hero {
+    padding-bottom: 100px;
+    position: relative;
+}
+img {
+    margin-left: 450px;    
+    margin-top: 20px;     
 }
