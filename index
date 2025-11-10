@@ -22,16 +22,10 @@
             </ul>
         </nav>
     </header>
-
-    <div class="hero container">
-        <div class="hero--info">
-            <h2>Москва</h2>
-            <h1>°C</h1>
-            <p></p>
-            <button class="btn"></button>
         </div>
+        <img src="img/main_page_asset_weather.svg" alt="">
     </div>
-        <img src="img/Weather_main_asset.svg" alt="">
+        </div>
         </body>
 </div> 
 </body>
