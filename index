@@ -9,25 +9,32 @@
 
 <body>
     <div class="wrapper">
-    <header class="container">
-        <span class="logo">Moscow weather</span>
-        <nav>
-            <ul>
-                <li><a href="#">Влажность</a></li>
-                <li><a href="#">Прогноз погоды</a></li>
-                <li><a href="#">Качество воздуха</a></li>
-                <li><a href="#">Содержание углекислого газа</a></li>
-                <li class="btn"><a href="#">О нас</a></li>
-
-            </ul>
-        </nav>
-    </header>
+        <header class="container">
+            <span class="logo">Moscow weather</span>
+            <nav>
+                <ul>
+                    <li><a href="#">Влажность</a></li>
+                    <li><a href="#">Прогноз погоды</a></li>
+                    <li><a href="#">Качество воздуха</a></li>
+                    <li><a href="#">Содержание углекислого газа</a></li>
+                    <li class="btn"><a href="#">О нас</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="weather-container">
+            <input type="checkbox" id="image-toggle" class="toggle-checkbox">
+            
+            <div class="image-slider">
+                <img src="img/main_page_asset_weather.svg" alt="Weather information" class="slide slide-1">
+                <img src="img/assset_test_rectangle.svg" alt="Test rectangle" class="slide slide-2">
+            </div>
         </div>
-        <img src="img/main_page_asset_weather.svg" alt="">
+        
+        <div class="carousel-nav">
+            <label for="image-toggle" class="carousel-btn prev" aria-label="Предыдущий слайд"></label>
+            <label for="image-toggle" class="carousel-btn next" aria-label="Следующий слайд"></label>
+        </div>
     </div>
-        </div>
-        </body>
-</div> 
 </body>
-
 </html>
