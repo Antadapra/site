@@ -23,17 +23,29 @@
         </header>
         
         <div class="weather-container">
-            <input type="checkbox" id="image-toggle" class="toggle-checkbox">
+            <input type="radio" name="slider" id="slide1" checked>
+            <input type="radio" name="slider" id="slide2">
+            <input type="radio" name="slider" id="slide3">
+            <input type="radio" name="slider" id="slide4">
             
             <div class="image-slider">
                 <img src="img/main_page_asset_weather.svg" alt="Weather information" class="slide slide-1">
                 <img src="img/assset_test_rectangle.svg" alt="Test rectangle" class="slide slide-2">
+                <img src="img/Main_page_asset_humidity.svg" alt="Влажность" class="slide slide-3">
+                <img src="img/Main_page_asset_content_Co2.svg" alt="Содержание CO2" class="slide slide-4">
             </div>
-        </div>
-        
-        <div class="carousel-nav">
-            <label for="image-toggle" class="carousel-btn prev" aria-label="Предыдущий слайд"></label>
-            <label for="image-toggle" class="carousel-btn next" aria-label="Следующий слайд"></label>
+            
+            <div class="carousel-nav">
+                <label for="slide1" class="carousel-btn prev"></label>
+                <label for="slide2" class="carousel-btn prev"></label>
+                <label for="slide3" class="carousel-btn prev"></label>
+                <label for="slide4" class="carousel-btn prev"></label>
+                
+                <label for="slide1" class="carousel-btn next"></label>
+                <label for="slide2" class="carousel-btn next"></label>
+                <label for="slide3" class="carousel-btn next"></label>
+                <label for="slide4" class="carousel-btn next"></label>
+            </div>
         </div>
     </div>
 </body>
