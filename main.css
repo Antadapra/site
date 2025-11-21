@@ -72,6 +72,7 @@ header nav ul li.btn a:hover {
 
 .weather-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 50px 0;
@@ -98,22 +99,14 @@ header nav ul li.btn a:hover {
     pointer-events: none;
 }
 
-.slide.active {
-    opacity: 1;
-    transform: translateX(0);
-    pointer-events: all;
-}
-
-.slide.prev {
-    transform: translateX(-50px);
-}
-
 .carousel-nav {
     display: flex;
-    gap: 20px;
     justify-content: center;
     align-items: center;
     margin: 20px 0;
+    position: relative;
+    width: 130px;
+    height: 60px;
 }
 
 .carousel-btn {
@@ -159,50 +152,48 @@ header nav ul li.btn a:hover {
     transform: scale(0.95);
 }
 
-.carousel-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.carousel-btn:disabled:hover {
-    background-color: transparent;
-    transform: none;
-}
-.toggle-checkbox {
+.weather-container input[type="radio"] {
     display: none;
 }
 
-.slide-1 {
+#slide1:checked ~ .image-slider .slide-1,
+#slide2:checked ~ .image-slider .slide-2,
+#slide3:checked ~ .image-slider .slide-3,
+#slide4:checked ~ .image-slider .slide-4 {
     opacity: 1;
     transform: translateX(0);
 }
 
-.slide-2 {
-    opacity: 0;
-    transform: translateX(50px);
+.carousel-nav .carousel-btn {
+    display: none;
+    position: absolute;
+    top: 0;
 }
 
-.toggle-checkbox:checked ~ .image-slider .slide-1 {
-    opacity: 0;
-    transform: translateX(-50px);
+.carousel-nav .prev {
+    left: 0;
 }
 
-.toggle-checkbox:checked ~ .image-slider .slide-2 {
-    opacity: 1;
-    transform: translateX(0);
+.carousel-nav .next {
+    right: 0;
 }
 
-.carousel-btn {
-    cursor: pointer;
+#slide1:checked ~ .carousel-nav label[for="slide4"].prev,
+#slide1:checked ~ .carousel-nav label[for="slide2"].next {
+    display: flex;
 }
 
-.toggle-checkbox:not(:checked) ~ .image-slider .slide-1,
-.toggle-checkbox:checked ~ .image-slider .slide-2 {
-    transition: all 0.5s ease-in-out;
+#slide2:checked ~ .carousel-nav label[for="slide1"].prev,
+#slide2:checked ~ .carousel-nav label[for="slide3"].next {
+    display: flex;
 }
 
-.toggle-checkbox:not(:checked) ~ .image-slider .slide-2,
-.toggle-checkbox:checked ~ .image-slider .slide-1 {
-    transition: all 0.5s ease-in-out;
+#slide3:checked ~ .carousel-nav label[for="slide2"].prev,
+#slide3:checked ~ .carousel-nav label[for="slide4"].next {
+    display: flex;
+}
+
+#slide4:checked ~ .carousel-nav label[for="slide3"].prev,
+#slide4:checked ~ .carousel-nav label[for="slide1"].next {
+    display: flex;
 }
