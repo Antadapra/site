@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -13,21 +14,26 @@ body {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 .wrapper {
-    background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(43, 39, 39, 1) 0%);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(43, 39, 39, 1) 0%);
     width: 100%;
     min-height: 100vh;
 }
 
 .container {
     width: 1400px;
+    max-width: 90%;
     margin: 0 auto;
 }
 
 header {
     padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .logo {
@@ -37,33 +43,38 @@ header .logo {
 }
 
 header nav {
-    float: right;
-    width: 50%;
+    width: 60%;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 header nav ul li {
-    display: inline-block
+    display: inline-block;
 }
 
-header nav ul li a {
-    color: #fff
+header nav ul li .nav-link {
+    color: #fff;
+    padding: 8px 0;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
 
-header nav ul li:not(.active):not(.btn) a:hover {
+header nav ul li:not(.btn) .nav-link:hover {
     border-bottom: 2px solid #695D5D;
 }
 
 header nav ul li.btn a {
     background: #695D5D;
-    padding: 6px 12px;
+    padding: 8px 16px;
     border-radius: 5px;
-    transition: all 500ms ease;
+    transition: all 0.3s ease;
 }
 
 header nav ul li.btn a:hover {
@@ -79,12 +90,20 @@ header nav ul li.btn a:hover {
     position: relative;
 }
 
-.image-slider {
+
+.weather-container input[type="radio"] {
+    display: none;
+}
+
+
+.slides-container {
     position: relative;
     width: 825px;
     max-width: 90%;
     height: 433px;
+    overflow: hidden;
 }
+
 
 .slide {
     position: absolute;
@@ -92,12 +111,30 @@ header nav ul li.btn a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(100%);
     transition: all 0.5s ease-in-out;
-    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+#slide1:checked ~ .slides-container .slide-1,
+#slide2:checked ~ .slides-container .slide-2,
+#slide3:checked ~ .slides-container .slide-3,
+#slide4:checked ~ .slides-container .slide-4 {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
+}
+
 
 .carousel-nav {
     display: flex;
@@ -116,12 +153,14 @@ header nav ul li.btn a:hover {
     border-radius: 50%;
     background-color: transparent;
     cursor: pointer;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
-    position: relative;
+    position: absolute;
+    top: 0;
 }
+
 
 .carousel-btn::before {
     content: '';
@@ -130,7 +169,6 @@ header nav ul li.btn a:hover {
     height: 20px;
     border-top: 3px solid #fff;
     border-right: 3px solid #fff;
-    transition: all 0.3s ease;
 }
 
 .carousel-btn.prev::before {
@@ -145,30 +183,8 @@ header nav ul li.btn a:hover {
 
 .carousel-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.1);
 }
 
-.carousel-btn:active {
-    transform: scale(0.95);
-}
-
-.weather-container input[type="radio"] {
-    display: none;
-}
-
-#slide1:checked ~ .image-slider .slide-1,
-#slide2:checked ~ .image-slider .slide-2,
-#slide3:checked ~ .image-slider .slide-3,
-#slide4:checked ~ .image-slider .slide-4 {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.carousel-nav .carousel-btn {
-    display: none;
-    position: absolute;
-    top: 0;
-}
 
 .carousel-nav .prev {
     left: 0;
@@ -177,6 +193,7 @@ header nav ul li.btn a:hover {
 .carousel-nav .next {
     right: 0;
 }
+
 
 #slide1:checked ~ .carousel-nav label[for="slide4"].prev,
 #slide1:checked ~ .carousel-nav label[for="slide2"].next {
@@ -196,4 +213,53 @@ header nav ul li.btn a:hover {
 #slide4:checked ~ .carousel-nav label[for="slide3"].prev,
 #slide4:checked ~ .carousel-nav label[for="slide1"].next {
     display: flex;
+}
+
+
+#slide1:checked ~ .wrapper header nav ul li:nth-child(1) .nav-link,
+#slide2:checked ~ .wrapper header nav ul li:nth-child(2) .nav-link,
+#slide3:checked ~ .wrapper header nav ul li:nth-child(3) .nav-link,
+#slide4:checked ~ .wrapper header nav ul li:nth-child(4) .nav-link {
+    border-bottom: 2px solid #695D5D;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    header .logo {
+        margin-bottom: 20px;
+    }
+    
+    header nav {
+        width: 100%;
+    }
+    
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .slides-container {
+        height: 300px;
+    }
+    
+    .carousel-nav {
+        width: 100px;
+    }
+    
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .carousel-btn::before {
+        width: 16px;
+        height: 16px;
+    }
 }
