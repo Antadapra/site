@@ -13,28 +13,39 @@
             <span class="logo">Moscow weather</span>
             <nav>
                 <ul>
-                    <li><a href="#">Влажность</a></li>
-                    <li><a href="#">Прогноз погоды</a></li>
-                    <li><a href="#">Качество воздуха</a></li>
-                    <li><a href="#">Содержание углекислого газа</a></li>
+                    <li><label for="slide1" class="nav-link">Прогноз погоды</label></li>
+                    <li><label for="slide2" class="nav-link">Влажность</label></li>
+                    <li><label for="slide3" class="nav-link">Качество воздуха</label></li>
+                    <li><label for="slide4" class="nav-link">Содержание углекислого газа</label></li>
                     <li class="btn"><a href="#">О нас</a></li>
                 </ul>
             </nav>
         </header>
         
         <div class="weather-container">
+
             <input type="radio" name="slider" id="slide1" checked>
             <input type="radio" name="slider" id="slide2">
             <input type="radio" name="slider" id="slide3">
             <input type="radio" name="slider" id="slide4">
             
-            <div class="image-slider">
-                <img src="img/main_page_asset_weather.svg" alt="Weather information" class="slide slide-1">
-                <img src="img/assset_test_rectangle.svg" alt="Test rectangle" class="slide slide-2">
-                <img src="img/Main_page_asset_humidity.svg" alt="Влажность" class="slide slide-3">
-                <img src="img/Main_page_asset_content_Co2.svg" alt="Содержание CO2" class="slide slide-4">
+
+            <div class="slides-container">
+                <div class="slide slide-1">
+                    <img src="img/main_page_asset_weather.svg" alt="Weather information">
+                </div>
+                <div class="slide slide-2">
+                    <img src="img/humidity 1.svg" alt="Влажность">
+                </div>
+                <div class="slide slide-3">
+                    <img src="img/air_quality 1.svg" alt="Качество воздуха">
+                </div>
+                <div class="slide slide-4">
+                    <img src="img/co2 1.svg" alt="Содержание CO2">
+                </div>
             </div>
             
+
             <div class="carousel-nav">
                 <label for="slide1" class="carousel-btn prev"></label>
                 <label for="slide2" class="carousel-btn prev"></label>
