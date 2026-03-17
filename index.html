@@ -1,63 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Website</title>
+    <title>Moscow Air - Мониторинг качества воздуха</title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
-
 <body>
     <div class="wrapper">
         <header class="container">
-            <span class="logo">Moscow weather</span>
+            <span class="logo">Moscow Air</span>
             <nav>
                 <ul>
-                    <li><label for="slide1" class="nav-link">Прогноз погоды</label></li>
-                    <li><label for="slide2" class="nav-link">Влажность</label></li>
-                    <li><label for="slide3" class="nav-link">Качество воздуха</label></li>
-                    <li><label for="slide4" class="nav-link">Содержание углекислого газа</label></li>
-                    <li class="btn"><a href="#">О нас</a></li>
+                    <li><label for="slide1" class="nav-link">Углеводородные газы</label></li>
+                    <li><label for="slide2" class="nav-link">Содержание пыли</label></li>
+                    <li><label for="slide3" class="nav-link">Содержание NO₂</label></li>
+                    <li><label for="slide4" class="nav-link">Содержание CO₂</label></li>
+                    <li class="btn"><a href="#" id="map-btn">Карта</a></li>
                 </ul>
             </nav>
         </header>
         
         <div class="weather-container">
-
             <input type="radio" name="slider" id="slide1" checked>
             <input type="radio" name="slider" id="slide2">
             <input type="radio" name="slider" id="slide3">
             <input type="radio" name="slider" id="slide4">
             
-
             <div class="slides-container">
                 <div class="slide slide-1">
-                    <img src="img/main_page_asset_weather.svg" alt="Weather information">
+                    <div class="weather-info">
+                        <h2>Содержание углеводородных газов</h2>
+                        <div class="weather-card">
+                            <div class="temperature">2.2 - 5.2 ppmv</div>
+                            <div class="conditions">Удовлетворительно</div>
+                            <div class="details">
+                                <div class="detail-item">
+                                    <span class="label">Метан (CH₄):</span>
+                                    <span class="value">1.8 - 3.0 ppm</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Бензол (C₆H₆):</span>
+                                    <span class="value">1 - 5 мкг/м³</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Формальдегид (CH₂O):</span>
+                                    <span class="value">3 - 10 мкг/м³</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="slide slide-2">
-                    <img src="img/humidity 1.svg" alt="Влажность">
+                    <div class="humidity-info">
+                        <h2>Содержание пыли</h2>
+                        <div class="humidity-card">
+                            <div class="humidity-level">Н/Д</div>
+                            <div class="humidity-status"></div>
+                            <div class="humidity-chart">
+                                <div class="chart-bar" style="height: 75%; background: #4CAF50;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="slide slide-3">
-                    <img src="img/air_quality 1.svg" alt="Качество воздуха">
+                    <div class="no2-info">
+                        <h2>Содержание NO₂</h2>
+                        <div class="no2-card">
+                            <div class="no2-value">15 ppb</div>
+                            <div class="no2-status">Хорошее качество воздуха</div>
+                            <div class="no2-scale">
+                                <div class="scale-mark" style="left: 20%;">0-20 ppb</div>
+                                <div class="scale-mark" style="left: 40%;">20-40 ppb</div>
+                                <div class="scale-mark" style="left: 60%;">40-60 ppb</div>
+                                <div class="scale-mark" style="left: 80%;">60+ ppb</div>
+                                <div class="scale-indicator" style="left: 25%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="slide slide-4">
-                    <img src="img/co2 1.svg" alt="Содержание CO2">
+                    <div class="co2-info">
+                        <h2>Содержание углекислого газа</h2>
+                        <div class="co2-card">
+                            <div class="co2-value">650 ppm</div>
+                            <div class="co2-status">Хорошее качество воздуха</div>
+                            <div class="co2-scale">
+                                <div class="scale-mark" style="left: 20%;">400-600 ppm</div>
+                                <div class="scale-mark" style="left: 40%;">600-800 ppm</div>
+                                <div class="scale-mark" style="left: 60%;">800-1000 ppm</div>
+                                <div class="scale-mark" style="left: 80%;">1000+ ppm</div>
+                                <div class="scale-indicator" style="left: 32%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-
-            <div class="carousel-nav">
-                <label for="slide1" class="carousel-btn prev"></label>
-                <label for="slide2" class="carousel-btn prev"></label>
-                <label for="slide3" class="carousel-btn prev"></label>
-                <label for="slide4" class="carousel-btn prev"></label>
-                
-                <label for="slide1" class="carousel-btn next"></label>
-                <label for="slide2" class="carousel-btn next"></label>
-                <label for="slide3" class="carousel-btn next"></label>
-                <label for="slide4" class="carousel-btn next"></label>
             </div>
         </div>
     </div>
+    
+    <script src="/js/main.js"></script>
 </body>
 </html>
